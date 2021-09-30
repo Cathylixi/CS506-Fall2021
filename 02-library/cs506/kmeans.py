@@ -2,6 +2,7 @@ from collections import defaultdict
 from math import inf
 import random
 import csv
+import numpy
 
 
 def point_avg(points):
@@ -11,7 +12,9 @@ def point_avg(points):
     
     Returns a new point which is the center of all the points.
     """
-    raise NotImplementedError()
+    x = [p[0] for p in points]
+    y = [p[1] for p in points]
+    return (sum(x)/len(points),sum(y)/len(points))
 
 
 def update_centers(dataset, assignments):
@@ -43,17 +46,17 @@ def distance(a, b):
     """
     Returns the Euclidean distance between a and b
     """
-    raise NotImplementedError()
+    return math.sqrt((a-b)**2)
 
 def distance_squared(a, b):
-    raise NotImplementedError()
+    return distance(a,b)**2
 
 def generate_k(dataset, k):
     """
     Given `data_set`, which is an array of arrays,
     return a random set of k points from the data_set
     """
-    raise NotImplementedError()
+    return np.random.choice(dataset,k)
 
 def cost_function(clustering):
     raise NotImplementedError()
